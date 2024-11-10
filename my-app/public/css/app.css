@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dropdown-menu-green {
+    background-color: green;
+    min-height: 100vh;
+}
+
+.dropdown-menu-green .dropdown-item {
+    color: white; 
+}
+
+.dropdown-menu-green .dropdown-item:hover {
+    background-color: darkgreen; 
+}
+
+body{
+    background-color: darkgrey;
+}
+
+.dropdown-header{
+    color: black;
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px; 
+}
+
+header h1 {
+    flex: 1;                  
+    text-align: center;       
+    margin: 0;                       
+} 
+
+.header{
+    display: flex;
+    gap: 10px;
+}
+
+.header-icons{
+    font-size: 2rem;
+}
+
+.container{
+    position: relative;
+    top: 30px; 
+}
+
+.btn-size{
+    width: 200px;
+    margin-top: 25px;
+}
+
+.admin-searchbar {
+    padding-top: 25px;
+    display: relative;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
