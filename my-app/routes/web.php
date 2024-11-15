@@ -1,14 +1,12 @@
 <?php
-
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin-dashboard', function () {
-    return view('admin-dashboard');
-});
 
 Route::get('/admin-create-staff', function () {
     return view('admin-create-staff');
@@ -30,4 +28,11 @@ Route::get('/admin-inventory-data', function () {
 Route::get('/admin-dashboard', function () {
     return view('admin-dashboard');
 })->name('admin.dashboard');
+
+Route::post('/staff/save', [StaffController::class, 'saveStaff'])->name('saveStaff');
+
+
+
+Route::resource('products',ProductController::class);
+
 
