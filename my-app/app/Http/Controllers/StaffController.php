@@ -44,6 +44,13 @@ class StaffController extends Controller
             return redirect()->back()->withErrors(['error' => 'Failed to create staff member. Please try again later.']);
         }
     }
+
+    public function viewStaff()
+    {
+        $staffs = Staff::all();
+
+        return view('admin-search-staff', compact('staffs'));
+    }
     
 
 }

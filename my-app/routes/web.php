@@ -31,6 +31,8 @@ Route::get('/admin-dashboard', function () {
 
 Route::post('/staff/save', [StaffController::class, 'saveStaff'])->name('saveStaff');
 
+Route::get('/admin-search-staff', [StaffController::class, 'viewStaff'])->name('admin.searchStaff');
+
 
 
 Route::resource('products',ProductController::class);
