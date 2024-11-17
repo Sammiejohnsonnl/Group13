@@ -13,9 +13,8 @@
 </head>
 <header>
   <h1>Admin Dashboard</h1>
-  <div class="header-icons">
-    <i class="fa-regular fa-bell"></i>
-    <i class="fa-regular fa-user"></i>
+  <div class="header-icons"><a href="{{ route('admin.viewInventory') }}"><i class="fa-regular fa-bell"></i></a>
+    <i class="fa-regular fa-user header-icons"></i>
   </div>
 
 </header>
