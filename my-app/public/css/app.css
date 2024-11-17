@@ -69,3 +69,13 @@ header h1 {
     align-items: center;    
     width: 1000px;
 }
+
+.select-size{
+    width: 250px;
+}
+
+.form-inline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }

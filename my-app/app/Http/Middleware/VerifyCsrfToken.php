@@ -1,4 +1,4 @@
-<?php
+<?php // Added these files to fix error 419
 
 namespace App\Http\Middleware;
 
@@ -28,19 +28,15 @@ class VerifyCsrfToken extends Middleware
      */
     public function handle(Request $request, Closure $next)
     {
-        // Log the incoming request token and session token for debugging
         Log::info('Incoming CSRF Token: ' . $request->input('_token'));
         Log::info('Session CSRF Token: ' . $request->session()->token());
-    
-        // If the CSRF token matches or the request is a GET or OPTIONS request, proceed
+
         if ($this->isReading($request) || $this->isJson($request) || $this->tokensMatch($request)) {
             return $next($request);
         }
-    
-        // Log CSRF mismatch error
+
         Log::error('CSRF token mismatch for request: ' . $request->fullUrl());
-    
-        // Abort with a 419 error if the CSRF token is invalid
+
         abort(419, 'Page Expired');
     }
     
