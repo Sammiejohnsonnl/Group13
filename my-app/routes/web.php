@@ -33,8 +33,7 @@ Route::post('/staff/save', [StaffController::class, 'saveStaff'])->name('saveSta
 
 Route::get('/admin-search-staff', [StaffController::class, 'viewStaff'])->name('admin.searchStaff');
 
+Route::get('/admin-inventory-data', [ProductController::class, 'viewProduct'])->name('admin.viewInventory');
 
-
-Route::resource('products',ProductController::class);
 
 

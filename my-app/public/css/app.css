@@ -54,6 +54,11 @@ header h1 {
     color: green;
 }
 
+.fa-plus{
+    margin-left: 5px;
+    color: darkgreen;
+}
+
 .container{
     position: relative;
     top: 30px; 
@@ -77,6 +82,20 @@ header h1 {
     align-items: center;    
     width: 1000px;
 }
+
+
+.d-flex {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .container-side {
+    margin-top: 20px;
+    width: 40%;
+    margin-right: 20px;
+ }
+  
+
 
 .select-size{
     width: 250px;
