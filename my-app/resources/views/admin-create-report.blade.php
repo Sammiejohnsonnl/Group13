@@ -13,7 +13,7 @@
 </head>
 <header>
   <h1>Report</h1>
-    <div class="header-icons"><a href="{{ route('admin.viewInventory') }}"><i class="fa-regular fa-bell"></i></a>
+  <div class="header-icons"><a href="{{ route('notification') }}"><i class="fa-regular fa-bell"></i></a>
     <i class="fa-regular fa-user header-icons"></i>
   </div>
 

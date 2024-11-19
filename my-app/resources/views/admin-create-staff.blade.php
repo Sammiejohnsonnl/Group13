@@ -13,7 +13,7 @@
 </head>
 <header>
   <h1>Add Staff Member</h1>
-  <div class="header-icons"><a href="{{ route('admin.viewInventory') }}"><i class="fa-regular fa-bell"></i></a>
+  <div class="header-icons"><a href="{{ route('notification') }}"><i class="fa-regular fa-bell"></i></a>
     <i class="fa-regular fa-user header-icons"></i>
   </div>
 </header>
@@ -71,8 +71,8 @@
                         <div class="form-group" id="role">
                             <label for="role">Role</label>
                             <select class="form-control" name="role" id="role" required>
-                                <option value="1" {{ old('role') == 1 ? 'selected' : '' }}>Role 1</option>
-                                <option value="2" {{ old('role') == 2 ? 'selected' : '' }}>Role 2</option>
+                                <option value="1" {{ old('role') == 1 ? 'selected' : '' }}>Admin</option>
+                                <option value="2" {{ old('role') == 2 ? 'selected' : '' }}>Inventory Manager</option>
                                 <option value="3" {{ old('role') == 3 ? 'selected' : '' }}>Role 3</option>
                                 <option value="4" {{ old('role') == 4 ? 'selected' : '' }}>Role 4</option>
                                 <option value="5" {{ old('role') == 5 ? 'selected' : '' }}>Role 5</option>
@@ -84,10 +84,10 @@
                         <div class="form-group" id="branch">
                             <label for="branch">Branch</label>
                             <select class="form-control" name="branch" id="branch" required>
-                                <option value="1" {{ old('branch') == 1 ? 'selected' : '' }}>Branch 1</option>
-                                <option value="2" {{ old('branch') == 2 ? 'selected' : '' }}>Branch 2</option>
-                                <option value="3" {{ old('branch') == 3 ? 'selected' : '' }}>Branch 3</option>
-                                <option value="4" {{ old('branch') == 4 ? 'selected' : '' }}>Branch 4</option>
+                                <option value="1" {{ old('branch') == 1 ? 'selected' : '' }}>Sheffield</option>
+                                <option value="2" {{ old('branch') == 2 ? 'selected' : '' }}>Derby</option>
+                                <option value="3" {{ old('branch') == 3 ? 'selected' : '' }}>Leeds</option>
+                                <option value="4" {{ old('branch') == 4 ? 'selected' : '' }}>Manchester</option>
                                 <option value="5" {{ old('branch') == 5 ? 'selected' : '' }}>Branch 5</option>
                             </select>
                         </div>

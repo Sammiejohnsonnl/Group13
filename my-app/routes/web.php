@@ -29,6 +29,10 @@ Route::get('/admin-dashboard', function () {
     return view('admin-dashboard');
 })->name('admin.dashboard');
 
+Route::get('/notification', function () {
+    return view('notification');
+})->name('notification');
+
 Route::post('/staff/save', [StaffController::class, 'saveStaff'])->name('saveStaff');
 
 Route::get('/admin-search-staff', [StaffController::class, 'viewStaff'])->name('admin.searchStaff');

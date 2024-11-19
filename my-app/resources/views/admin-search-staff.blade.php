@@ -6,7 +6,7 @@
 
 <header>
   <h1>Staff Members</h1>
-  <div class="header-icons"><a href="{{ route('admin.viewInventory') }}"><i class="fa-regular fa-bell"></i></a>
+  <div class="header-icons"><a href="{{ route('notification') }}"><i class="fa-regular fa-bell"></i></a>
     <i class="fa-regular fa-user header-icons"></i>
   </div>
 </header>
@@ -34,7 +34,7 @@
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">{{ $staff->first_name }} {{ $staff->last_name }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ $staff->role }}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{ $staff->role }} / {{ $staff->branch }}</h6>
                 <p class="card-text">{{ $staff->email }}</p>
                 <button 
                   type="button" 
