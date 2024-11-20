@@ -33,6 +33,10 @@ Route::get('/notification', function () {
     return view('notification');
 })->name('notification');
 
+Route::get('/sign-up', function () {
+    return view('sign-up');
+})->name('sign-up');
+
 Route::post('/staff/save', [StaffController::class, 'saveStaff'])->name('saveStaff');
 
 Route::get('/admin-search-staff', [StaffController::class, 'viewStaff'])->name('admin.searchStaff');
