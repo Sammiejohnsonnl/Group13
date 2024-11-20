@@ -22,9 +22,6 @@
 <div class="container">
         <h2>My Notifications</h2>
         <div class="p-4 bg-light border rounded shadow mt-4">
-            <form method="POST" action="{{ route('saveStaff') }}">
-                @csrf
-            </form>
             Example Notifications
             <div class="alert alert-success" role="alert">
             Restock at the Sheffield branch

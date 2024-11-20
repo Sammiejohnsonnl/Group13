@@ -19,8 +19,8 @@ class StaffController extends Controller
             'last_name'  => 'required|string|max:255',
             'email'      => 'required|email|unique:staff,email',
             'password'   => 'required|string|min:6|confirmed',
-            'role'       => 'required|integer',
-            'branch'     => 'required|integer',
+            'role'       => 'required|string',
+            'branch'     => 'required|string',
         ]);
     
         DB::beginTransaction();

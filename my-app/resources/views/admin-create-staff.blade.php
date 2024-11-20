@@ -71,23 +71,25 @@
                         <div class="form-group" id="role">
                             <label for="role">Role</label>
                             <select class="form-control" name="role" id="role" required>
-                                <option value="1" {{ old('role') == 1 ? 'selected' : '' }}>Admin</option>
-                                <option value="2" {{ old('role') == 2 ? 'selected' : '' }}>Inventory Manager</option>
-                                <option value="3" {{ old('role') == 3 ? 'selected' : '' }}>Role 3</option>
-                                <option value="4" {{ old('role') == 4 ? 'selected' : '' }}>Role 4</option>
-                                <option value="5" {{ old('role') == 5 ? 'selected' : '' }}>Role 5</option>
+                                <option value="Admin" {{ old('role') == 'Admin' ? 'selected' : '' }}>Admin</option>
+                                <option value="Inventory Manager" {{ old('role') == 'Inventory Manager' ? 'selected' : '' }}>Inventory Manager</option>
+                                <option value="Role_3" {{ old('role') == 'Role_3' ? 'selected' : '' }}>Role 3</option>
+                                <option value="Role_4" {{ old('role') == 'Role_4' ? 'selected' : '' }}>Role 4</option>
+                                <option value="Role_5" {{ old('role') == 'Role_5' ? 'selected' : '' }}>Role 5</option>
                             </select>
                         </div>
                     </div>
+                </div>
+
 
                     <div class="col mt-4">
                         <div class="form-group" id="branch">
                             <label for="branch">Branch</label>
                             <select class="form-control" name="branch" id="branch" required>
-                                <option value="1" {{ old('branch') == 1 ? 'selected' : '' }}>Sheffield</option>
-                                <option value="2" {{ old('branch') == 2 ? 'selected' : '' }}>Derby</option>
-                                <option value="3" {{ old('branch') == 3 ? 'selected' : '' }}>Leeds</option>
-                                <option value="4" {{ old('branch') == 4 ? 'selected' : '' }}>Manchester</option>
+                                <option value="Sheffield" {{ old('branch') == 'Sheffield' ? 'selected' : '' }}>Sheffield</option>
+                                <option value="Derby" {{ old('branch') == 'Derby' ? 'selected' : '' }}>Derby</option>
+                                <option value="Leeds" {{ old('branch') == 'Leeds' ? 'selected' : '' }}>Leeds</option>
+                                <option value="Manchester" {{ old('branch') == 'Manchester' ? 'selected' : '' }}>Manchester</option>
                                 <option value="5" {{ old('branch') == 5 ? 'selected' : '' }}>Branch 5</option>
                             </select>
                         </div>
