@@ -79,8 +79,6 @@
                             </select>
                         </div>
                     </div>
-                </div>
-
 
                     <div class="col mt-4">
                         <div class="form-group" id="branch">
@@ -95,6 +93,7 @@
                         </div>
                     </div>
                 </div>
+
 
                 <button class="btn btn-primary btn-size mt-4" type="submit">Create Account</button>
             </form>

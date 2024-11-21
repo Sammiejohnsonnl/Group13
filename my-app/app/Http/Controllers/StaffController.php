@@ -51,6 +51,38 @@ class StaffController extends Controller
 
         return view('admin-search-staff', compact('staffs'));
     }
-    
+
+    public function searchStaff()
+    {
+        $staffs = Staff::query();
+        if ($search = request()->get('search', '')) {
+            $staffs = $staffs->where(function ($query) use ($search) {
+                $query->where('first_name', 'like', '%' . $search . '%')
+                      ->orWhere('last_name', 'like', '%' . $search . '%');
+            });
+        }
+
+        if ($role = request()->get('role')) {
+            $staffs = $staffs->where('role', $role);
+        }
+
+        
+        if ($branch = request()->get('branch')) {
+            $staffs = $staffs->where('branch', $branch);
+        }
+        return view('admin-search-staff', ['staffs' => $staffs->get()]);
+    }
+
+    public function destroy($staffId)
+    {
+        try {
+            Staff::findOrFail($staffId)->delete();
+            return redirect()->route('admin.dashboard')->with('', '');
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error deleting staff member. Please try again later.'], 500);
+        }
+    }
+
+
 
 }
