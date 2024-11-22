@@ -24,7 +24,7 @@
   <div class="admin-searchbar">
         <form class="form-inline my-2 my-lg-0" method="get" action="{{ route('admin.searchProduct') }}">
             <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search Product" aria-label="Search">
-            <select class="form-control form-control-sm select-size" name="product">
+            <select class="form-control form-control-sm select-size" name="product_type">
                 <option value="">Product Type</option>
                 <option value="Game">Game</option>
                 <option value="Console">Console</option>
@@ -32,9 +32,9 @@
             </select>
             <select class="form-control form-control-sm select-size" name="platform">
               <option value="">Platform</option>
-              <option value="PC">PC</option>
-              <option value="Xbox">Xbox</option>
-              <option value="Playstation">Playstation</option>
+              <option value="pc">PC</option>
+              <option value="xbox">Xbox</option>
+              <option value="playstation">Playstation</option>
             </select>
             <select class="form-control form-control-sm select-size" name="order">
               <option value="">Order by</option>

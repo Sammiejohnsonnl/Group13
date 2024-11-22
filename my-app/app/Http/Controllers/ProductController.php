@@ -17,13 +17,13 @@ class ProductController extends Controller
             });
         }
 
-        if ($product_type = request()->get('product')) {
-            $products = $products->where('product', $product_type);
+        if ($product_type = request()->get('product_type')) {
+            $products = $products->where('product_type', $product_type);
         }
 
         
         if ($platform = request()->get('platform')) {
-            $products = $products->where('platform', $product);
+            $products = $products->where('platform', $platform);
         }
         return view('/admin-inventory-data', ['products' => $products->get()]);
     }
