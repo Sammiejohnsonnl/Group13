@@ -8,14 +8,25 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function searchProduct()
     {
-        //
-    }
+        $products = Product::query();
+        if ($search = request()->get('search', '')) {
+            $products = $products->where(function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%');
+            });
+        }
 
+        if ($product_type = request()->get('product')) {
+            $products = $products->where('product', $product_type);
+        }
+
+        
+        if ($platform = request()->get('platform')) {
+            $products = $products->where('platform', $product);
+        }
+        return view('/admin-inventory-data', ['products' => $products->get()]);
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -28,7 +39,7 @@ class ProductController extends Controller
     {
         $products = Product::all();
 
-        return view('admin-inventory-data', compact('products'));
+        return view('/admin-inventory-data', compact('products'));
     }
 
     /**

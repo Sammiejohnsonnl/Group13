@@ -39,13 +39,15 @@ Route::get('/sign-up', function () {
 
 Route::post('/staff/save', [StaffController::class, 'saveStaff'])->name('saveStaff');
 
-Route::get('/admin-search-staff', [StaffController::class, 'viewStaff'])->name('admin.searchStaff');
+Route::get('/admin-search-staff', [StaffController::class, 'viewStaff'])->name('admin.viewStaff');
+Route::get('/admin-search-staff/search', [StaffController::class, 'searchStaff'])->name('admin.searchStaff');
+
 
 Route::get('/admin-inventory-data', [ProductController::class, 'viewProduct'])->name('admin.viewInventory');
 
-Route::get('/admin-search-staff', [StaffController::class, 'searchStaff'])->name('admin.searchStaff');
-
 Route::delete('/staff/{staff}', [StaffController::class, 'destroy'])->name('staff.destroy');
+
+Route::get('/admin-inventory-data/search', [ProductController::class, 'searchProduct'])->name('admin.searchProduct');
 
 
 
