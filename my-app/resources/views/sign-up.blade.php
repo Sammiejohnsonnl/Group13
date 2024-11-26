@@ -34,6 +34,14 @@
             <div class="form-group">
                 <input type="repassword" name="confirm_password" placeholder="Confirm Password">
             </div>
+            <div class="form-group">
+                <label for="">
+                    <input type="checkbox" name="">
+                    I accept the <a href="#">Terms of use</a> & <a href="#">Privacy Policy</a>
+                </label>
+            </div>
+
+            <input type="submit" class="btn btn-success btn-block" name="" value="Submit">
         </form>
 
     </div>
