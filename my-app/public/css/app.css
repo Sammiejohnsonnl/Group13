@@ -106,3 +106,9 @@ header h1 {
     align-items: center;
     gap: 10px;
 }
+
+/* sign-up css */
+.form-signup{
+    margin:0 auto;
+    max-width: 400px;
+}
