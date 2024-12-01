@@ -29,13 +29,12 @@
   </form>
 </div>
 
-<div class="container">
-  <div class="p-4 bg-light border rounded shadow">
+<div class="content">
     <h4>Staff Members:</h4>
-    @foreach($staffs->chunk(3) as $staffChunk)
+    @foreach($staffs->chunk(5) as $staffChunk)
       <div class="row">
         @foreach ($staffChunk as $staff)
-          <div class="col-md-4 mb-4">
+          <div class="col-md-3">
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">{{ $staff->first_name }} {{ $staff->last_name }}</h5>
@@ -59,7 +58,6 @@
         @endforeach
       </div>
     @endforeach
-  </div>
 </div>
 
 <div class="modal fade" id="staffModal" tabindex="-1" aria-labelledby="staffModalLabel" aria-hidden="true">
@@ -72,31 +70,32 @@
       <div class="modal-body">
         <div class="mb-3">
           <label for="modalFirstNameInput" class="form-label"><strong>First Name:</strong></label>
-          <input type="text" class="form-control" id="modalFirstNameInput" value="Loading...">
+          <input type="text" class="form-control" id="modalFirstNameInput" name="first_name" value="Loading...">
         </div>
         <div class="mb-3">
           <label for="modalLastNameInput" class="form-label"><strong>Last Name:</strong></label>
-          <input type="text" class="form-control" id="modalLastNameInput" value="Loading...">
+          <input type="text" class="form-control" id="modalLastNameInput" name="last_name" value="Loading...">
         </div>
         <div class="mb-3">
           <label for="modalEmailInput" class="form-label"><strong>Email:</strong></label>
-          <input type="email" class="form-control" id="modalEmailInput" value="Loading...">
+          <input type="email" class="form-control" id="modalEmailInput" name="email" value="Loading...">
         </div>
         <div class="mb-3">
           <label for="modalRoleInput" class="form-label"><strong>Role:</strong></label>
-          <input type="text" class="form-control" id="modalRoleInput" value="Loading...">
+          <input type="text" class="form-control" id="modalRoleInput" name="role" value="Loading...">
         </div>
       </div>
       <div class="modal-footer">
+        <button type="button" id="updateStaffButton" class="btn btn-success" data-id="">Update</button>
         <form id="updateStaffForm" action="" method="POST" style="display: none;">
-          @csrf
-          {{ method_field('PATCH') }}
-          <input type="hidden" name="first_name" id="hiddenFirstName">
-          <input type="hidden" name="last_name" id="hiddenLastName">
-          <input type="hidden" name="email" id="hiddenEmail">
-          <input type="hidden" name="role" id="hiddenRole">
-        </form>
-        <button type="button" id="updateStaffButton" class="btn btn-success">Update</button>
+    @csrf
+    {{ method_field('PATCH') }}
+    <input type="text" name="first_name" hidden>
+    <input type="text" name="last_name" hidden>
+    <input type="email" name="email" hidden>
+    <input type="text" name="role" hidden>
+</form>
+
         <button type="button" id="deleteStaffButton" class="btn btn-danger" data-id="">Delete</button>
         <form id="deleteStaffForm" action="" method="POST" style="display: none;">
           @csrf
@@ -113,7 +112,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     const deleteButton = document.getElementById('deleteStaffButton');
     const deleteForm = document.getElementById('deleteStaffForm');
-
+    const updateButton = document.getElementById('updateStaffButton');
+    const updateForm = document.getElementById('updateStaffForm');
+    
     deleteButton.addEventListener('click', function () {
         const staffId = deleteButton.getAttribute('data-id');
         if (staffId) {
@@ -125,6 +126,28 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Staff ID is not set!');
         }
     });
+
+    updateButton.addEventListener('click', function () {
+    const staffId = updateButton.getAttribute('data-id');
+    const firstName = document.getElementById('modalFirstNameInput').value;
+    const lastName = document.getElementById('modalLastNameInput').value;
+    const email = document.getElementById('modalEmailInput').value;
+    const role = document.getElementById('modalRoleInput').value;
+    
+    if (staffId) {
+        updateForm.action = `/staff/${staffId}`;
+
+        updateForm.querySelector('input[name="first_name"]').value = firstName;
+        updateForm.querySelector('input[name="last_name"]').value = lastName;
+        updateForm.querySelector('input[name="email"]').value = email;
+        updateForm.querySelector('input[name="role"]').value = role;
+
+        updateForm.submit();
+    } else {
+        alert('Staff ID is not set!');
+    }
+});
+
 
     const staffModal = document.getElementById('staffModal');
     staffModal.addEventListener('show.bs.modal', function (event) {
@@ -144,5 +167,4 @@ document.addEventListener('DOMContentLoaded', function () {
         updateButton.setAttribute('data-id', staffId);
     });
 });
-
 </script>

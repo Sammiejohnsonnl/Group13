@@ -83,6 +83,28 @@ class StaffController extends Controller
         }
     }
 
+    public function update(Request $request, $staffId)
+    {
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:staff,email,' . $staffId,
+            'role' => 'required|string|max:255',
+        ]);
+    
+        $staff = Staff::findOrFail($staffId);
+    
+        $staff->update([
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'email' => $request->input('email'),
+            'role' => $request->input('role'),
+        ]);
+    
+        return redirect()->back()->with('success', 'Staff member updated successfully.');
+    }
+    
+
 
 
 }

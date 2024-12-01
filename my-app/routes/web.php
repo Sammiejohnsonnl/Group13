@@ -47,6 +47,8 @@ Route::get('/admin-inventory-data', [ProductController::class, 'viewProduct'])->
 
 Route::delete('/staff/{staff}', [StaffController::class, 'destroy'])->name('staff.destroy');
 
+Route::patch('/staff/{staff}', [StaffController::class, 'update'])->name('staff.update');
+
 Route::get('/admin-inventory-data/search', [ProductController::class, 'searchProduct'])->name('admin.searchProduct');
 
 
