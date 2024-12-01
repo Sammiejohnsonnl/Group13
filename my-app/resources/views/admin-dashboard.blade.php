@@ -4,34 +4,60 @@
 
 @include('admin-menu')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
 <header>
   <h1>Admin Dashboard</h1>
-  <div class="header-icons"><a href="{{ route('notification') }}"><i class="fa-regular fa-bell"></i></a>
+  <div class="header-icons">
+    <a href="{{ route('notification') }}"><i class="fa-regular fa-bell"></i></a>
     <i class="fa-regular fa-user header-icons"></i>
   </div>
-
 </header>
-<body>
 
-  <div class="container">
-    <div class="p-4 bg-light border rounded shadow ">
-        <p>Statistics Overview</p>
+<div class="content">
+  <h3>Today's Statistics Overview</h3>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="data-box">User Registered</div>
+    </div>
+    <div class="col-md-3">
+      <div class="data-box">Total Orders</div>
+    </div>
+    <div class="col-md-3">
+      <div class="data-box">Revenue</div>
     </div>
   </div>
+</div>
 
-  <div class="container">
-    <div class="p-4 bg-light border rounded shadow mt-4 ">
-        <p>Recent activity</p>
-    </div>
-  </div>
-</body>
-</html>
+<div class="content">
+  <h3>Today's Top Selling Products</h3>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product</th>
+      <th scope="col">Profit</th>
+      <th scope="col">Stock</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2"></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 @endsection
