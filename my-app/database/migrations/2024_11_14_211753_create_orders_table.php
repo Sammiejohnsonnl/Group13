@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(RegisteredCustomer::class); 
             $table->string('delivery_status');
+            $table->timestamps();
 
             $table->foreign('registered_customer_id')->references('id')->on('registered_customers')->onDelete('cascade');    
         });
