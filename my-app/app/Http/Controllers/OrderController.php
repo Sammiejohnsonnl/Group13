@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+
+    public function viewInvoices()
+    {
+        $orders = Order::with(['registeredcustomer', 'productordered'])->get();
+        return view('admin-invoice-details', compact('orders'));
+    }
     /**
      * Display a listing of the resource.
      */

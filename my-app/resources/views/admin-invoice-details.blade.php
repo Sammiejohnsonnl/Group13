@@ -11,6 +11,7 @@
         <i class="fa-regular fa-user header-icons"></i>
     </div>
 </header>
+
 <div class="content">
     <h3>Invoices</h3>
     <table class="table">
@@ -25,9 +26,30 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($Orders as $index => $Order)
+            @foreach($orders as $order)
                 <tr>
-
+                    <th scope="row">{{ $order->id }}</th>
+                    <td>
+                        <a href="{{ route('customers.show', $order->customer->id) }}">
+                            {{ $order->customer->name }}
+                        </a>
+                    </td>
+                    <td>
+                        @foreach($order->products as $product)
+                            <div>
+                                <a href="{{ route('products.show', $product->id) }}">
+                                    {{ $product->name }}
+                                </a>
+                            </div>
+                        @endforeach
+                    </td>
+                    <td>
+                        @foreach($order->products as $product)
+                            <div>{{ $product->pivot->quantity }}</div>
+                        @endforeach
+                    </td>
+                    <td>{{ number_format($order->total, 2) }}</td>
+                    <td>{{ $order->created_at->format('Y-m-d') }}</td>
                 </tr>
             @endforeach
         </tbody>

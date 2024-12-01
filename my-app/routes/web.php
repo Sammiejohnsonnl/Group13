@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -54,6 +55,9 @@ Route::delete('/staff/{staff}', [StaffController::class, 'destroy'])->name('staf
 Route::patch('/staff/{staff}', [StaffController::class, 'update'])->name('staff.update');
 
 Route::get('/admin-inventory-data/search', [ProductController::class, 'searchProduct'])->name('admin.searchProduct');
+
+Route::get('/admin-invoice-details', [OrderController::class, 'viewInvoices'])->name('admin.viewInvoices');
+
 
 
 
