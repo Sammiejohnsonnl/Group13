@@ -17,9 +17,13 @@ Route::get('/admin-search-staff', function () {
     return view('admin-search-staff');
 })->name('admin.searchStaff');
 
-Route::get('/admin-create-report', function () {
-    return view('admin-create-report');
-})->name('admin.createReport');
+Route::get('/admin-sales-data', function () {
+    return view('admin-sales-data');
+})->name('admin.viewSales');
+
+Route::get('/admin-invoice-details', function () {
+    return view('admin-invoice-details');
+})->name('admin.viewInvoices');
 
 Route::get('/admin-inventory-data', function () {
     return view('admin-inventory-data');
