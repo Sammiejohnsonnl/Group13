@@ -1,6 +1,11 @@
 .dropdown-menu-green {
-    background-color: green;
-    min-height: 100vh;
+    background-color: #101b34;
+    min-height: 100%;
+    width:250px;
+    padding-right: 20px;
+    border-radius: 0;
+    position:fixed;
+    border: none;
 }
 
 .dropdown-menu-green .dropdown-item {
@@ -8,15 +13,29 @@
 }
 
 .dropdown-menu-green .dropdown-item:hover {
-    background-color: darkgreen; 
+    background-color: #14233d; 
 }
 
 body{
-    background-color: darkgrey;
+    background-color: white;
+}
+
+.content{
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.data-box{
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    width: 300px; 
+    text-align: center;
 }
 
 .dropdown-header{
-    color: black;
+    color: #bec0c8;
 }
 
 
@@ -25,6 +44,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0 16px; 
+    border-bottom: 2px solid rgb(211, 211, 211);
 }
 
 header h1 {
