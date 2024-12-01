@@ -28,8 +28,7 @@
             </select>
             <select class="form-control form-control-sm select-size" name="order">
                 <option value="">Order by</option>
-                <option value="Sheffield">Sheffield</option>
-                <option value="Leeds">Leeds</option>
+                <option value="Stock">Stock Low to High</option>
             </select>
             <button class="btn btn-primary" type="submit">Search</button>
         </form>

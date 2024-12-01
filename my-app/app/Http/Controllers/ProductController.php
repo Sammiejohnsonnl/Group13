@@ -8,25 +8,33 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function searchProduct()
+    public function searchProduct(Request $request)
     {
         $products = Product::query();
-        if ($search = request()->get('search', '')) {
-            $products = $products->where(function ($query) use ($search) {
-                $query->where('name', 'like', '%' . $search . '%');
-            });
+
+        if ($search = $request->get('search')) {
+            $products = $products->where('name', 'like', '%' . $search . '%');
         }
 
-        if ($product_type = request()->get('product_type')) {
-            $products = $products->where('product_type', $product_type);
+        if ($productType = $request->get('product_type')) {
+            $products = $products->where('product_type', $productType);
         }
 
-        
-        if ($platform = request()->get('platform')) {
+        if ($platform = $request->get('platform')) {
             $products = $products->where('platform', $platform);
         }
-        return view('/admin-inventory-data', ['products' => $products->get()]);
+
+        if ($order = $request->get('order')) {
+            if ($order == 'Stock') {
+                $products = $products->orderBy('stock_quantity', 'asc');
+            }
+        }
+
+        $products = $products->get();
+    
+        return view('admin-inventory-data', compact('products'));
     }
+    
     /**
      * Show the form for creating a new resource.
      */
