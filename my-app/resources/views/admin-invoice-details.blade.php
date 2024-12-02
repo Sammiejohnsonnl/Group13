@@ -31,7 +31,7 @@
                     <th scope="row">{{ $order->id }}</th>
                     <td>
                         <a href="{{ route('customers.show', $order->customer->id) }}">
-                            {{ $order->customer->name }}
+                            {{ $order->customer->first_name }}
                         </a>
                     </td>
                     <td>
@@ -45,11 +45,18 @@
                     </td>
                     <td>
                         @foreach($order->products as $product)
-                            <div>{{ $product->pivot->quantity }}</div>
+                            <div>{{ $product->pivot->ordered_quantity }}</div>
                         @endforeach
                     </td>
+
                     <td>{{ number_format($order->total, 2) }}</td>
-                    <td>{{ $order->created_at->format('Y-m-d') }}</td>
+                    <td>
+                    @if($order->created_at)
+                        {{ $order->created_at->format('Y-m-d') }}
+                    @else
+                        <span>Unknown date</span>
+                    @endif
+                </td>
                 </tr>
             @endforeach
         </tbody>

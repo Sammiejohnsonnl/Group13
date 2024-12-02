@@ -10,7 +10,7 @@ class OrderController extends Controller
 
     public function viewInvoices()
     {
-        $orders = Order::with(['registeredcustomer', 'productordered'])->get();
+        $orders = Order::with(['customer', 'products'])->get();
         return view('admin-invoice-details', compact('orders'));
     }
     /**

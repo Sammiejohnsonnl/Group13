@@ -2,6 +2,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -57,6 +58,10 @@ Route::patch('/staff/{staff}', [StaffController::class, 'update'])->name('staff.
 Route::get('/admin-inventory-data/search', [ProductController::class, 'searchProduct'])->name('admin.searchProduct');
 
 Route::get('/admin-invoice-details', [OrderController::class, 'viewInvoices'])->name('admin.viewInvoices');
+
+Route::get('/customers/{customer}', [CustomerController::class, 'show'])->name('customers.show');
+
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 
 
 

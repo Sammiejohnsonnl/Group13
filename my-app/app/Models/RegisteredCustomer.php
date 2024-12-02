@@ -11,7 +11,13 @@ class RegisteredCustomer extends Model
 
     public function orders(): HasMany
     {
-        return $this->hasMany(Order::class, 'registered_customer_id');
+        return $this->hasMany(Order::class, 'registered_customer_id'); 
     }
+
+    public function show(RegisteredCustomer $customer)
+    {
+        return view('customers.show', compact('customer'));
+    }
+    
 }
 
