@@ -7,44 +7,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign-Up</title>
-</head>
-<body>
-    <div class="container">
-        <form action="" class="form-signup">
-            <h2>Create an Account</h2>
+    <body class="reg-body">
+        <section class="reg-container">
 
-            <div class= "form-group">
-                <div class="row">
-                    <div class="col-md-6">
-                        <input type="text" name="firstname" placeholder="Enter your first name">
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" name="lasttname" placeholder="Enter your last name">
-                    </div>
+            <header> 
+                <h1 class="reg-header">Become a Member Today</h1> 
+            </header>
+
+            <form action="#" class="form">
+
+                <div class="input-box">
+                    <label>First name</label>
+                    <input type="text" placeholder="Enter your first name" required />
                 </div>
-            </div>
 
-            <div class="form-group">
-                <input type="email" name="email" placeholder="Email address">
-            </div>
+                <div class="input-box">
+                    <label>Last Name</label>
+                    <input type="text" placeholder="Enter your last name" required />
+                </div>
 
-            <div class="form-group">
-                <input type="password" name="password" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <input type="repassword" name="confirm_password" placeholder="Confirm Password">
-            </div>
-            <div class="form-group">
-                <label for="">
-                    <input type="checkbox" name="">
-                    I accept the <a href="#">Terms of use</a> & <a href="#">Privacy Policy</a>
-                </label>
-            </div>
+                <div class="input-box">
+                    <label>Email address</label>
+                    <input type="email" placeholder="Enter your email address" required />
+                </div>
 
-            <input type="submit" class="btn btn-success btn-block" name="" value="Submit">
-        </form>
+                <div class="input-box">
+                    <label>Phone Number</label>
+                    <input type="number" placeholder="Enter phone number" required />
+                </div>
 
-    </div>
-</body>
+                <div class="input-box">
+                    <label>Password</label>
+                    <input type="password" placeholder="Password" required />
+                </div>
+
+                <div class="input-box">
+                    <label>Confirm Password</label>
+                    <input type="password" placeholder=" Confirm Password" required />
+                </div>
+
+                <div class="checkbox">
+                    <label for="">
+                        <input type="checkbox" name="">
+                        I accept the <a href="#">Terms of use</a> & <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+
+
+                <button class="sign-btn">Sign Up</button>
+
+            </form>
+
+        </section>
+
+    </body>
+
 </html>
 @endsection
