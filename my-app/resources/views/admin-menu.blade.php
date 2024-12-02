@@ -16,7 +16,6 @@
         <div class="dropdown-divider"></div>
         <h6 class="dropdown-header">Data Manager</h6>
         <a class="dropdown-item" href="{{ route('admin.viewInventory') }}">View inventory</a>
-        <a class="dropdown-item" href="{{ route('admin.viewSales') }}">Sales data</a>
         <a class="dropdown-item" href="{{ route('admin.viewInvoices') }}">Invoice details</a>
     </div>
     </div>

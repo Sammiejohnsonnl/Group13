@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('platform');
             $table->integer('price');
             $table->integer('stock_quantity');
+            $table->integer('units_sold')->default(0);
         });
     }
 

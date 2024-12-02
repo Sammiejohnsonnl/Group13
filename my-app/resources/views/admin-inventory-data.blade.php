@@ -45,6 +45,8 @@
                     <th scope="col">Platform</th>
                     <th scope="col">Price</th>
                     <th scope="col">Stock</th>
+                    <th scope="col">Units sold</th>
+                    <th scope="col">Profit</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,6 +58,9 @@
                         <td>{{ $product->platform }}</td>
                         <td>£{{ number_format($product->price, 2) }}</td> 
                         <td>{{ $product->stock_quantity }}</td>
+                        <td>{{ $product->units_sold }}</td>
+                        <td>£{{ number_format($product->units_sold * $product->price, 2) }}</td>
+
                     </tr>
                 @endforeach
             </tbody>
