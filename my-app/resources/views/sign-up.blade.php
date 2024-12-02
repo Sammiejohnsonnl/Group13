@@ -43,7 +43,7 @@
 
                 <div class="input-box">
                     <label>Confirm Password</label>
-                    <input type="password" placeholder=" Confirm Password" required />
+                    <input type="password" placeholder="Confirm Password" required />
                 </div>
 
                 <div class="checkbox">
