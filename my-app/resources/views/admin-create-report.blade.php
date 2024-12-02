@@ -21,12 +21,31 @@
 <body>
 
 
-  <div class="container">
-        <h3> Statistics </h3>
-        <div class="p-4 bg-light border rounded shadow ">
-        <div class="text-end">
-            <button class="btn btn-primary" onclick="exportData()">Generate Report</button>
-        </div>
+  <div class="content">
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    <label class="form-check-label" for="flexRadioDefault1">
+      Sales
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+    <label class="form-check-label" for="flexRadioDefault2">
+      Staff
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+    <label class="form-check-label" for="flexRadioDefault3">
+      Invoice Details
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    <label class="form-check-label" for="flexRadioDefault1">
+      Inventory Data
+    </label>
+  </div>
   </div>
 
 </body>

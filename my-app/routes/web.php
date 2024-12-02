@@ -1,6 +1,8 @@
 <?php
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,9 +19,13 @@ Route::get('/admin-search-staff', function () {
     return view('admin-search-staff');
 })->name('admin.searchStaff');
 
-Route::get('/admin-create-report', function () {
-    return view('admin-create-report');
-})->name('admin.createReport');
+Route::get('/admin-sales-data', function () {
+    return view('admin-sales-data');
+})->name('admin.viewSales');
+
+Route::get('/admin-invoice-details', function () {
+    return view('admin-invoice-details');
+})->name('admin.viewInvoices');
 
 Route::get('/admin-inventory-data', function () {
     return view('admin-inventory-data');
@@ -50,6 +56,13 @@ Route::delete('/staff/{staff}', [StaffController::class, 'destroy'])->name('staf
 Route::patch('/staff/{staff}', [StaffController::class, 'update'])->name('staff.update');
 
 Route::get('/admin-inventory-data/search', [ProductController::class, 'searchProduct'])->name('admin.searchProduct');
+
+Route::get('/admin-invoice-details', [OrderController::class, 'viewInvoices'])->name('admin.viewInvoices');
+
+Route::get('/customers/{customer}', [CustomerController::class, 'show'])->name('customers.show');
+
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+
 
 
 
