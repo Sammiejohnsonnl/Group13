@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class RegisteredCustomerController extends Controller
 {
+    public function dashboard()
+    {
+        $totalUsers = RegisteredCustomer::count();
+        return view('admin-dashboard', compact('totalUsers')); 
+    }   
+
     /**
      * Display a listing of the resource.
      */

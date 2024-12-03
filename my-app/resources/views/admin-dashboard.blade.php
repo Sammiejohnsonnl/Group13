@@ -13,10 +13,10 @@
 </header>
 
 <div class="content">
-  <h3>Today's Statistics Overview</h3>
+  <h3>General Statistics Overview</h3>
   <div class="row">
     <div class="col-md-3">
-      <div class="data-box">User Registered</div>
+      <div class="data-box">User Registered: {{ $totalUsers }}</div>
     </div>
     <div class="col-md-3">
       <div class="data-box">Total Orders</div>
@@ -41,20 +41,21 @@
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>Product A</td>
+      <td>$500</td>
+      <td>50</td>
     </tr>
     <tr>
       <th scope="row">2</th>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>Product B</td>
+      <td>$300</td>
+      <td>30</td>
     </tr>
     <tr>
       <th scope="row">3</th>
-      <td colspan="2"></td>
-      <td></td>
+      <td>Product C</td>
+      <td>$200</td>
+      <td>20</td>
     </tr>
   </tbody>
 </table>

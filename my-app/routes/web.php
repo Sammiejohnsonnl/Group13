@@ -2,7 +2,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\RegisteredCustomerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -59,9 +59,11 @@ Route::get('/admin-inventory-data/search', [ProductController::class, 'searchPro
 
 Route::get('/admin-invoice-details', [OrderController::class, 'viewInvoices'])->name('admin.viewInvoices');
 
-Route::get('/customers/{customer}', [CustomerController::class, 'show'])->name('customers.show');
+Route::get('/customers/{customer}', [RegisteredCustomerController::class, 'show'])->name('customers.show');
 
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+
+Route::get('/admin-dashboard', [RegisteredCustomerController::class, 'dashboard'])->name('admin.dashboard');
 
 
 

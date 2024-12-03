@@ -13,6 +13,12 @@ class OrderController extends Controller
         $orders = Order::with(['customer', 'products'])->get();
         return view('admin-invoice-details', compact('orders'));
     }
+
+    public function dashboard()
+    {
+        $totalOrders = Order::count();
+        return view('admin-dashboard', compact('totalOrders')); 
+    }  
     /**
      * Display a listing of the resource.
      */
