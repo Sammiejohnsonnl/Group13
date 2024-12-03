@@ -193,4 +193,10 @@ header h1 {
   .form .sign-btn:hover {
     background: rgb(17, 141, 89);
   }
- 
+  .paragraph{
+    padding-top: 20px;
+    text-align: center;
+  }
+ a{
+    color: darkgreen;
+ }
