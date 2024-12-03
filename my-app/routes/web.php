@@ -3,6 +3,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisteredCustomerController;
+use App\Http\Controllers\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -67,7 +68,8 @@ Route::get('/customers/{customer}', [RegisteredCustomerController::class, 'show'
 
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 
-Route::get('/admin-dashboard', [RegisteredCustomerController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('/admin-dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
+
 
 
 
