@@ -48,6 +48,14 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+Route::get('/login', function () {
+    return view('login');
+})->name('user.login');
+
+Route::get('/sign-up', function () {
+    return view('sign-up');
+})->name('user.signup');
+
 Route::post('/staff/save', [StaffController::class, 'saveStaff'])->name('saveStaff');
 
 Route::get('/admin-search-staff', [StaffController::class, 'viewStaff'])->name('admin.viewStaff');
