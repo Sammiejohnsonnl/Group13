@@ -78,7 +78,8 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 
 Route::get('/admin-dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
 
-
+//Registered user Sign-Up
+Route::get('/sign-up', [RegisteredCustomerController::class, 'userSignUp'])->name('user.signUp');
 
 
 

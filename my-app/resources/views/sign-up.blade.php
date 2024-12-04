@@ -12,40 +12,44 @@
 
     <body>
         <div class="reg-body">
+
+
             <section class="reg-container">
 
                 <h1 class="reg-header">Become a Member Today</h1>
 
-                <form action="#" class="form">
+                <form method="POST" action="{{ route('userSignUp') }}" class="form">
+
+                    @csrf
 
                     <div class="input-box">
                         <label>First name</label>
-                        <input type="text" placeholder="Enter your first name" required />
+                        <input type="text" name="firstName" placeholder="Enter your first name" required />
                     </div>
 
                     <div class="input-box">
                         <label>Last Name</label>
-                        <input type="text" placeholder="Enter your last name" required />
+                        <input type="text" name="lastName" placeholder="Enter your last name" required />
                     </div>
 
                     <div class="input-box">
                         <label>Email address</label>
-                        <input type="email" placeholder="Enter your email address" required />
+                        <input type="email" name="email" placeholder="Enter your email address" required />
                     </div>
 
                     <div class="input-box">
                         <label>Phone Number</label>
-                        <input type="number" placeholder="Enter phone number" required />
+                        <input type="number" name="number" placeholder="Enter phone number" required />
                     </div>
 
                     <div class="input-box">
                         <label>Password</label>
-                        <input type="password" placeholder="Password" required />
+                        <input type="password" name="password" placeholder="Password" required />
                     </div>
 
                     <div class="input-box">
                         <label>Confirm Password</label>
-                        <input type="password" placeholder="Confirm Password" required />
+                        <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
                     </div>
 
                     <div class="checkbox">
