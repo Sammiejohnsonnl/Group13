@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('admin-menu')
+@include('admin-menu')
 
     <header>
         <h1>Inventory</h1>
