@@ -18,7 +18,7 @@
 
                 <h1 class="reg-header">Become a Member Today</h1>
 
-                <form method="POST" action="{{ route('userSignUp') }}" class="form">
+                <form method="POST" action="{{ route('user.signUp') }}" class="form">
 
                     @csrf
 
@@ -60,7 +60,7 @@
                     </div>
 
 
-                    <button class="sign-btn">Sign Up</button>
+                    <button class="sign-btn" type="submit">Sign Up</button>
 
                     <div  class="paragraph">
                         <p>Already a member?<a href="{{ route('user.login') }}"> Sign in </a></p>
