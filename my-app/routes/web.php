@@ -54,7 +54,7 @@ Route::get('/login', function () {
 
 Route::get('/sign-up', function () {
     return view('sign-up');
-})->name('user.signup');
+})->name('user.signUp');
 
 Route::post('/staff/save', [StaffController::class, 'saveStaff'])->name('saveStaff');
 
