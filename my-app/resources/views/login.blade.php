@@ -30,7 +30,7 @@
                 <button class="sign-btn">Sign in</button>
 
                 <div  class="paragraph">
-                    <p>Don't have an account?<a href="#"> Sign Up </a></p>
+                    <p>Don't have an account?<a href="{{ route('user.signup') }}"> Sign Up </a></p>
                 </div>
 
             </form>

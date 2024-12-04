@@ -57,7 +57,7 @@
                 <button class="sign-btn">Sign Up</button>
 
                 <div  class="paragraph">
-                    <p>Already a member?<a href="#"> Sign in </a></p>
+                    <p>Already a member?<a href="{{ route('user.login') }}"> Sign in </a></p>
                 </div>
 
 
