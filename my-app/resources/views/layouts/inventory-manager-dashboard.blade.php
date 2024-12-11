@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Manager Dashboard</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap CSS -->
 </head>
 <header class="d-flex justify-content-between align-items-center p-3 mb-3 border-bottom">
     <h1>Inventory Manager Dashboard</h1>

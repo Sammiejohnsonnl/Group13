@@ -66,17 +66,20 @@ Route::get('/admin-invoice-details', [OrderController::class, 'viewInvoices'])->
 
 Route::get('/customers/{customer}', [CustomerController::class, 'show'])->name('customers.show');
 
-Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+Auth::routes();
 
-Route::get('/', [ProductController::class, 'index'])->name('products.index');
-Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
-Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
-Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
-Route::get('/products/search', [ProductController::class, 'searchProduct'])->name('products.search');
-Route::get('/inventory-manager-dashboard', [InventoryManagerDashboardController::class, 'index'])->name('inventory-manager-dashboard');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+    Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+    Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+    Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::get('/products/search', [ProductController::class, 'searchProduct'])->name('products.search');
+
+    Route::get('/inventory-manager-dashboard', [InventoryManagerDashboardController::class, 'index'])->name('inventory-manager-dashboard');
+});
 
 
 
