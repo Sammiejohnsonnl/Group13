@@ -1,17 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-Up</title>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign-Up</title>
+
     <body class="reg-body">
         <section class="reg-container">
 
-            <header> 
-                <h1 class="reg-header">Become a Member Today</h1> 
+            <header>
+                <h1 class="reg-header">Become a Member Today</h1>
             </header>
 
             <form action="#" class="form">
@@ -56,7 +58,7 @@
 
                 <button class="sign-btn">Sign Up</button>
 
-                <div  class="paragraph">
+                <div class="paragraph">
                     <p>Already a member?<a href="#"> Sign in </a></p>
                 </div>
 
@@ -67,5 +69,5 @@
 
     </body>
 
-</html>
+    </html>
 @endsection

@@ -13,7 +13,8 @@
 
     <div class="admin-searchbar">
         <form class="form-inline my-2 my-lg-0" method="get" action="{{ route('admin.searchProduct') }}">
-            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search Product" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search Product"
+                aria-label="Search">
             <select class="form-control form-control-sm select-size" name="product_type">
                 <option value="">Product Type</option>
                 <option value="Game">Game</option>
@@ -50,13 +51,13 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($products as $index => $product)
+                @foreach ($products as $index => $product)
                     <tr>
                         <th scope="row">{{ $index + 1 }}</th>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->product_type }}</td>
                         <td>{{ $product->platform }}</td>
-                        <td>£{{ number_format($product->price, 2) }}</td> 
+                        <td>£{{ number_format($product->price, 2) }}</td>
                         <td>{{ $product->stock_quantity }}</td>
                         <td>{{ $product->units_sold }}</td>
                         <td>£{{ number_format($product->units_sold * $product->price, 2) }}</td>

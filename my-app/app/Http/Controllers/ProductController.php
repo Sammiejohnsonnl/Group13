@@ -4,10 +4,56 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+    // Display all products
+    public function index()
+    {
+        $products = Product::all();
+        return view('products.index', compact('products'));
+    }
+
+    // form for adding a new product
+    public function create()
+    {
+        return view('products.create');
+    }
+
+    // Store new product
+    public function store(Request $request)
+    {
+        Product::create($request->all());
+        return redirect()->route('products.index')->with('success', 'Product created successfully.');
+    }
+
+    // Display a specific product
+    public function show(Product $product)
+    {
+        return view('products.show', compact('product'));
+    }
+
+    // Show the form to edit an existing product
+    public function edit(Product $product)
+    {
+        return view('products.edit', compact('product'));
+    }
+
+    // Update an existing product
+    public function update(Request $request, Product $product)
+    {
+        $product->update($request->all());
+        return redirect()->route('products.index')->with('success', 'Product updated successfully.');
+    }
+
+    // Delete an existing product
+    public function destroy(Product $product)
+    {
+        $product->delete();
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+    }
+
+    // Search for products
     public function searchProduct(Request $request)
     {
         $products = Product::query();
@@ -31,62 +77,15 @@ class ProductController extends Controller
         }
 
         $products = $products->get();
-    
-        return view('admin-inventory-data', compact('products'));
-    }
-    
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+
+        return view('products.index', compact('products'));
     }
 
+    // View all products (similar to index but for different users)
     public function viewProduct()
     {
         $products = Product::all();
-
-        return view('/admin-inventory-data', compact('products'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Product $product)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Product $product)
-    {
-        //
+        return view('products.index', compact('products'));
     }
 }
+
