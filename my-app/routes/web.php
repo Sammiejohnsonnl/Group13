@@ -4,6 +4,7 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\InventoryManagerDashboardController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -77,15 +78,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
     Route::get('/products/search', [ProductController::class, 'searchProduct'])->name('products.search');
-
     Route::get('/inventory-manager-dashboard', [InventoryManagerDashboardController::class, 'index'])->name('inventory-manager-dashboard');
 });
-
-
-
-
-
-
-
-
-
