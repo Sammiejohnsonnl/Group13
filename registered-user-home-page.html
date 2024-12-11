@@ -20,30 +20,31 @@
             overflow-y: auto; /* Vertical scrollbar */
         }
 
-        /* Navbar styles */
-        .navbar {
-            background-color: #001432; /* Navy blue */
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: sticky;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            width: 100%;
-        }
+/* Navbar styles */
+.navbar {
+    background-color: #001432; /* Navy blue */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding is included in the element's total width */
+}
 
-        /* Top row: Search bar + icons */
-        .navbar-top {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center the search bar */
-            width: 100%;
-        }
+/* Top row: Search bar + icons */
+.navbar-top {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the search bar */
+    width: 100%;
+}
 
         /* Style for the search bar */
         .search-container {
@@ -125,20 +126,26 @@
         /* Product grid styles */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 products per row */
-    gap: 20px;
+    grid-template-columns: repeat(6, 250px); /* 6 products per row */
+    gap: 30px;
     margin-top: 20px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .product {
-    height: 300px; 
+    height: 350px; 
+    width: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 10px; 
-    text-align: center;
+    text-align: left;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -182,6 +189,7 @@
 
         .cart-btn:hover {
             color: #4a90e2;
+            transform: scale(1.1);
         }
 
         .category-heading {
@@ -224,6 +232,54 @@
 
     <!-- Main Content -->
     <div class="container">
+        <!--recommended for you-->
+        <div class="category-heading">Recommended for you</div>
+        <div class="product-grid">
+<!-- Product 1 - recommended -->
+<div class="product">
+    <img src="https://via.placeholder.com/150" alt="Black Myth Wukong">
+    <h2>Black Myth Wukong</h2>
+    <p>£54.99</p>
+    <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+</div>
+<!-- Product 2 - recommended -->
+<div class="product">
+    <img src="https://via.placeholder.com/150" alt="NBA 2K25">
+    <h2>NBA 2K25</h2>
+    <p>£69.99</p>
+    <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+</div>
+<!-- Product 3 - recomemended -->
+<div class="product">
+    <img src="https://via.placeholder.com/150" alt="Playstation Portal">
+    <h2>Playstation Portal</h2>
+    <p>£499.99</p>
+    <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+</div>
+<!-- Product 4 - recommended -->
+<div class="product">
+    <img src="https://via.placeholder.com/150" alt="Steering Wheel">
+    <h2>Steering wheel</h2>
+    <p>£49.99</p>
+    <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+</div>
+<!-- Product 5 - recommended -->
+<div class="product">
+    <img src="https://via.placeholder.com/150" alt="Hogwarts Legacy">
+    <h2>Hogwarts Legacy</h2>
+    <p>£64.99</p>
+    <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+</div>
+<!-- Product 6 - Game -->
+<div class="product">
+    <img src="https://via.placeholder.com/150" alt="Grand Turismo 7">
+    <h2>Grand Turismo 7</h2>
+    <p>£69.99</p>
+    <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+</div>
+</div>
+
+
         <!-- Games Section -->
         <div class="category-heading">Games</div>
         <div class="product-grid">
@@ -365,349 +421,6 @@
             </div>
         </div>
     </div>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 
 </body>
 </html>
