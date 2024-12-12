@@ -49,6 +49,10 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+Route::get('/inventory-manager-dashboard', function () {
+    return view('inventory-manager-dashboard');
+})->name('inventory-manager-dashboard');
+
 Route::post('/staff/save', [StaffController::class, 'saveStaff'])->name('saveStaff');
 
 Route::get('/admin-search-staff', [StaffController::class, 'viewStaff'])->name('admin.viewStaff');
