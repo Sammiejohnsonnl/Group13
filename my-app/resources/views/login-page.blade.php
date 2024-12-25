@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -105,7 +106,6 @@
         .footer-links a:hover {
             text-decoration: underline;
         }
-
     </style>
 </head>
 <body>
@@ -113,7 +113,8 @@
         <h2>Account Sign In</h2>
 
         <!-- Login Form -->
-        <form action="login-process.php" method="POST">
+        <form action="{{ route('login') }}" method="POST">
+            @csrf
             <!-- Username or Email -->
             <input type="text" class="input-field" placeholder="Email" name="username" required>
 
