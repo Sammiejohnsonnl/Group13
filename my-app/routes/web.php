@@ -4,17 +4,16 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisteredCustomerController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\Auth\LoginController; 
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/admin-create-staff', function () {
     return view('admin-create-staff');
 })->name('admin.createStaff');
-
 
 Route::get('/admin-search-staff', function () {
     return view('admin-search-staff');
@@ -44,17 +43,10 @@ Route::get('/sign-up', function () {
     return view('sign-up');
 })->name('sign-up');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
-Route::get('/login', function () {
-    return view('login');
-})->name('user.login');
-
-Route::get('/sign-up', function () {
-    return view('sign-up');
-})->name('user.signUp');
+// Login Routes
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('user.login');
+Route::post('/logout', [LoginController::class, 'logout'])->name('user.logout');
 
 Route::get('/shopping-cart', function () {
     return view('shopping-cart');
@@ -64,7 +56,6 @@ Route::post('/staff/save', [StaffController::class, 'saveStaff'])->name('saveSta
 
 Route::get('/admin-search-staff', [StaffController::class, 'viewStaff'])->name('admin.viewStaff');
 Route::get('/admin-search-staff/search', [StaffController::class, 'searchStaff'])->name('admin.searchStaff');
-
 
 Route::get('/admin-inventory-data', [ProductController::class, 'viewProduct'])->name('admin.viewInventory');
 
@@ -82,12 +73,5 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 
 Route::get('/admin-dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
 
-//Registered user Sign-Up
+// Registered user Sign-Up
 Route::post('/user/sign-up', [RegisteredCustomerController::class, 'userSignUp'])->name('user.signUp');
-
-
-
-
-
-
-

@@ -106,6 +106,13 @@
         .footer-links a:hover {
             text-decoration: underline;
         }
+
+        /* Styling for error messages */
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -116,11 +123,20 @@
         <form action="{{ route('login') }}" method="POST">
             @csrf
             <!-- Username or Email -->
-            <input type="text" class="input-field" placeholder="Email" name="username" required>
+            <input type="text" class="input-field" placeholder="Email" name="username" value="{{ old('username') }}" required>
+            
+            @if($errors->has('username'))
+                <div class="error-message">{{ $errors->first('username') }}</div>
+            @endif
 
             <!-- Password with Show Password toggle -->
             <div class="password-container">
                 <input type="password" class="input-field" placeholder="Password" name="password" id="password" required>
+                
+                @if($errors->has('password'))
+                    <div class="error-message">{{ $errors->first('password') }}</div>
+                @endif
+
                 <button type="button" id="toggle-password">Show</button>
             </div>
 
