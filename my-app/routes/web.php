@@ -43,9 +43,11 @@ Route::get('/notification', function () {
 Route::get('/sign-up', function () {
     return view('sign-up');
 })->name('sign-up');
+
 Route::get('/inventory-manager-dashboard', function () {
     return view('inventory-manager-dashboard');
 })->name('inventory-manager-dashboard');
+
 
 // Login Routes
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -76,7 +78,7 @@ Route::get('/customers/{customer}', [RegisteredCustomerController::class, 'show'
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 
 Route::get('/admin-dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
-Route::get('/inventory-manager-dashboard', [InventoryManagerDashboardController::class, 'index'])->name('inventory-manager-dashboard');
+Route::get('/inventory-manager/dashboard', [InventoryManagerDashboardController::class, 'index'])->name('inventory-manager/dashboard');
 
 // Registered user Sign-Up
 Route::post('/user/sign-up', [RegisteredCustomerController::class, 'userSignUp'])->name('user.signUp');
