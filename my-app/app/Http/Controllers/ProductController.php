@@ -31,10 +31,10 @@ class ProductController extends Controller
         }
 
         $products = $products->get();
-    
+
         return view('admin-inventory-data', compact('products'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -86,7 +86,6 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Product $product)
-    {
-        //
-    }
+    { $product->delete();
+         return redirect()->route('products.index')->with('success', 'Product deleted successfully.'); }
 }
