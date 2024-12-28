@@ -75,7 +75,7 @@ Route::get('/admin-invoice-details', [OrderController::class, 'viewInvoices'])->
 
 Route::get('/customers/{customer}', [RegisteredCustomerController::class, 'show'])->name('customers.show');
 
-Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/products/{product}', [ProductController::class, 'show'])->name(name: 'products.show');
 
 Route::get('/admin-dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
 Route::get('/inventory-manager/dashboard', [InventoryManagerDashboardController::class, 'index'])->name('inventory-manager/dashboard');
