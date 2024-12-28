@@ -75,9 +75,8 @@
                     <div class="form-group">
                         <label for="filter">Filter by:</label>
                         <select class="form-control" id="filter">
-                            <option>Category</option>
-                            <option>Supplier</option>
-                            <option>Stock Status</option>
+                            <option>Product Type</option>
+                            <option>Platform</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Search</button>
