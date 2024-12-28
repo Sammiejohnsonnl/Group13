@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-
     public function index()
     {
         $products = Product::all();
         return view('admin-inventory-data', compact('products'));
     }
+
     public function searchProduct(Request $request)
     {
         $products = Product::query();
@@ -42,7 +42,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new product
      */
     public function create()
     {
@@ -57,17 +57,40 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created product
      */
     public function store(Request $request)
     {
-        $request->validate(['name' => 'required', 'description' => 'nullable', 'quantity' => 'required|integer', 'product_type' => 'required', 'platform' => 'nullable', 'price' => 'required|numeric', 'image_path' => 'nullable|string']);
-        Product::create($request->all());
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'quantity' => 'required|integer',
+            'product_type' => 'required|string|max:255',
+            'platform' => 'nullable|string|max:255',
+            'price' => 'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('product_images', 'public');
+        }
+
+        Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'quantity' => $request->quantity,
+            'product_type' => $request->product_type,
+            'platform' => $request->platform,
+            'price' => $request->price,
+            'image_path' => $imagePath,
+        ]);
+
         return redirect()->route('products.index')->with('success', 'Product added successfully.');
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified product
      */
     public function show(Product $product)
     {
@@ -75,7 +98,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified product
      */
     public function edit(Product $product)
     {
@@ -83,17 +106,40 @@ class ProductController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified product in storage
      */
     public function update(Request $request, Product $product)
     {
-        $request->validate(['name' => 'required', 'description' => 'nullable', 'quantity' => 'required|integer', 'product_type' => 'required', 'platform' => 'nullable', 'price' => 'required|numeric', 'image_path' => 'nullable|string']);
-        $product->update($request->all());
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'quantity' => 'required|integer',
+            'product_type' => 'required|string|max:255',
+            'platform' => 'nullable|string|max:255',
+            'price' => 'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imagePath = $product->image_path;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('product_images', 'public');
+        }
+
+        $product->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'quantity' => $request->quantity,
+            'product_type' => $request->product_type,
+            'platform' => $request->platform,
+            'price' => $request->price,
+            'image_path' => $imagePath,
+        ]);
+
         return redirect()->route('products.index')->with('success', 'Product updated successfully.');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified product from storage
      */
     public function destroy(Product $product)
     {
