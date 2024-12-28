@@ -46,6 +46,6 @@ class InventoryManagerController extends Controller
 
         $products = $products->get();
 
-        return view('inventory-manager-data', compact('products'));
+        return view('products.searchProduct', compact('products'));
     }
 }

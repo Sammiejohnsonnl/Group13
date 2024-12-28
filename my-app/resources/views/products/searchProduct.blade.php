@@ -2,7 +2,7 @@
 
 @section('content')
     <header>
-        <h1>Inventory Manager</h1>
+        <h1 style="text-align: center;">Search Products</h1>
         <div class="header-icons">
             <a href="{{ route('notification') }}"><i class="fa-regular fa-bell"></i></a>
             <i class="fa-regular fa-user header-icons"></i>
@@ -10,7 +10,7 @@
     </header>
 
     <div class="admin-searchbar">
-        <form class="form-inline my-2 my-lg-0" method="get" action="{{ route('inventory.manager.searchProduct') }}">
+        <form class="form-inline my-2 my-lg-0" method="get" action="{{ route('manager.searchProduct') }}">
             <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search Product"
                 aria-label="Search">
             <select class="form-control form-control-sm select-size" name="product_type">
@@ -35,7 +35,6 @@
 
     <div class="content">
         <h3>Products</h3>
-        <a href="{{ route('products.create') }}" class="btn btn-primary mb-3">Add Product</a>
         <table class="table">
             <thead>
                 <tr>

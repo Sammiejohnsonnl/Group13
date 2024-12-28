@@ -1,30 +1,34 @@
-@extends('layouts.app')
+@extends('inventory-manager-menu')
 
 @section('content')
-    <div class="sidebar">
-        <a href="{{ route('inventory.manager.dashboard') }}">Dashboard</a>
-        <a href="{{ route('inventory.manager.data') }}">View Inventory</a>
-        <a href="{{ route('products.create') }}">Add Product</a>
-    </div>
+    <header>
+        <h1 style="text-align: center;">Inventory Manager Dashboard</h1>
+        <div class="header-icons">
+            <a href="{{ route('notification') }}"><i class="fa-regular fa-bell"></i></a>
+            <i class="fa-regular fa-user header-icons"></i>
+        </div>
+    </header>
 
     <div class="content">
-        <h2>Inventory Manager Dashboard</h2>
+        <h3>Products Overview</h3>
+        <div class="row">
+            <div class="col-sm-6 d-flex align-items-stretch">
+                <div class="card stats-card products-card flex-fill">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <h5 class="card-title">Total Orders</h5>
+                        <p class="card-text">{{ $totalOrders }}</p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="card mb-3">
-            <div class="card-header">Total Orders</div>
-            <div class="card-body">
-                <p>{{ $totalOrders }}</p>
+            <div class="col-sm-6 d-flex align-items-stretch">
+                <div class="card stats-card orders-card flex-fill">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <h5 class="card-title">Products Inventory</h5>
+                        <p>{{ $productsInventory }}</p>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="card mb-3">
-            <div class="card-header">Products Inventory</div>
-            <div class="card-body">
-                <p>{{ $productsInventory }}</p>
-            </div>
-        </div>
-
-        <!-- Add more cards for additional statistics as needed -->
-
     </div>
 @endsection

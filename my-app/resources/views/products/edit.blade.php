@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('inventory-manager-menu')
 
 @section('content')
     <div class="container">

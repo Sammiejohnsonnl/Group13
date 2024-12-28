@@ -19,8 +19,5 @@
                 <p>{{ $productsInventory }}</p>
             </div>
         </div>
-
-        <!-- Add more cards for additional statistics as needed -->
-
     </div>
 @endsection
