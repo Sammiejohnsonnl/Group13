@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -64,11 +63,10 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'quantity' => 'required|integer',
             'product_type' => 'required|string|max:255',
             'platform' => 'nullable|string|max:255',
             'price' => 'required|numeric',
-            'stock_quantity' => 'required|integer', // Ensure stock_quantity is validated
+            'stock_quantity' => 'required|integer',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -80,11 +78,10 @@ class ProductController extends Controller
         Product::create([
             'name' => $request->name,
             'description' => $request->description,
-            'quantity' => $request->quantity,
             'product_type' => $request->product_type,
             'platform' => $request->platform,
             'price' => $request->price,
-            'stock_quantity' => $request->stock_quantity, // Ensure stock_quantity is saved
+            'stock_quantity' => $request->stock_quantity,
             'image_path' => $imagePath,
         ]);
 
@@ -115,10 +112,10 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'quantity' => 'required|integer',
             'product_type' => 'required|string|max:255',
             'platform' => 'nullable|string|max:255',
             'price' => 'required|numeric',
+            'stock_quantity' => 'required|integer',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -130,10 +127,10 @@ class ProductController extends Controller
         $product->update([
             'name' => $request->name,
             'description' => $request->description,
-            'quantity' => $request->quantity,
             'product_type' => $request->product_type,
             'platform' => $request->platform,
             'price' => $request->price,
+            'stock_quantity' => $request->stock_quantity,
             'image_path' => $imagePath,
         ]);
 
