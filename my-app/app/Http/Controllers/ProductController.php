@@ -42,7 +42,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new product
+     * Show the form for creating a new resource.
      */
     public function create()
     {
@@ -57,7 +57,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created product
+     * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
@@ -68,6 +68,7 @@ class ProductController extends Controller
             'product_type' => 'required|string|max:255',
             'platform' => 'nullable|string|max:255',
             'price' => 'required|numeric',
+            'stock_quantity' => 'required|integer', // Ensure stock_quantity is validated
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -83,6 +84,7 @@ class ProductController extends Controller
             'product_type' => $request->product_type,
             'platform' => $request->platform,
             'price' => $request->price,
+            'stock_quantity' => $request->stock_quantity, // Ensure stock_quantity is saved
             'image_path' => $imagePath,
         ]);
 
@@ -90,7 +92,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified product
+     * Display the specified resource.
      */
     public function show(Product $product)
     {
@@ -98,7 +100,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for editing the specified product
+     * Show the form for editing the specified resource.
      */
     public function edit(Product $product)
     {
@@ -106,7 +108,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Update the specified product in storage
+     * Update the specified resource in storage.
      */
     public function update(Request $request, Product $product)
     {
@@ -139,7 +141,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified product from storage
+     * Remove the specified resource from storage.
      */
     public function destroy(Product $product)
     {

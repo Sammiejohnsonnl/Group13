@@ -13,7 +13,7 @@ class AdminDashboardController extends Controller
     {
         $totalUsers = RegisteredCustomer::count();
         $totalOrders = Order::count();
-        $productsInventory = Product::sum('total'); // Added variable
+        $productsInventory = Product::sum('stock_quantity'); // Corrected to sum stock_quantity
         $revenue = Order::sum('total');
 
         return view('admin-dashboard', compact('totalUsers', 'totalOrders', 'productsInventory', 'revenue'));
@@ -22,7 +22,7 @@ class AdminDashboardController extends Controller
     public function viewInventory()
     {
         $totalOrders = Order::count(); // Ensure total orders count is passed
-        $productsInventory = Product::sum('total'); // Ensure products inventory is passed
+        $productsInventory = Product::sum('stock_quantity'); // Ensure products inventory is passed
         $products = Product::all();
 
         return view('admin-inventory-data', compact('products', 'totalOrders', 'productsInventory'));

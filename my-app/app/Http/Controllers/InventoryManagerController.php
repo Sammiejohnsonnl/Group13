@@ -10,14 +10,17 @@ class InventoryManagerController extends Controller
 {
     public function index()
     {
+        $totalOrders = Order::count();
+        $productsInventory = Product::sum('stock_quantity');
         $products = Product::all();
-        return view('inventory-manager-data', compact('products'));
+
+        return view('inventory-manager-data', compact('products', 'totalOrders', 'productsInventory'));
     }
 
     public function dashboard()
     {
         $totalOrders = Order::count();
-        $productsInventory = Product::sum('total');
+        $productsInventory = Product::sum('stock_quantity'); // Corrected to sum stock_quantity
 
         return view('inventory-manager-dashboard', compact('totalOrders', 'productsInventory'));
     }
