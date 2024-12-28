@@ -1,10 +1,12 @@
 <?php
+
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisteredCustomerController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\InventoryManagerDashboardController;
+use App\Http\Controllers\InventoryManagerController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -75,10 +77,23 @@ Route::get('/admin-invoice-details', [OrderController::class, 'viewInvoices'])->
 
 Route::get('/customers/{customer}', [RegisteredCustomerController::class, 'show'])->name('customers.show');
 
+Route::resource('products', ProductController::class);
+
 Route::get('/products/{product}', [ProductController::class, 'show'])->name(name: 'products.show');
 
 Route::get('/admin-dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
+
 Route::get('/inventory-manager/dashboard', [InventoryManagerDashboardController::class, 'index'])->name('inventory-manager/dashboard');
+
+
+// Inventory Manager View
+Route::get('/inventory-manager-data', [InventoryManagerController::class, 'index'])->name('inventory.manager.data');
+
+// Inventory Manager Dashboard
+Route::get('/inventory-manager-dashboard', [InventoryManagerController::class, 'dashboard'])->name('inventory.manager.dashboard');
+
+
+
 
 // Registered user Sign-Up
 Route::post('/user/sign-up', [RegisteredCustomerController::class, 'userSignUp'])->name('user.signUp');

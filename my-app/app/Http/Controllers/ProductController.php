@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+
+    public function index()
+    {
+        $products = Product::all();
+        return view('admin-inventory-data', compact('products'));
+    }
     public function searchProduct(Request $request)
     {
         $products = Product::query();
@@ -40,7 +46,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     public function viewProduct()
@@ -55,7 +61,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(['name' => 'required', 'description' => 'nullable', 'quantity' => 'required|integer', 'product_type' => 'required', 'platform' => 'nullable', 'price' => 'required|numeric', 'image_path' => 'nullable|string']);
+        Product::create($request->all());
+        return redirect()->route('products.index')->with('success', 'Product added successfully.');
     }
 
     /**
@@ -63,7 +71,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -71,7 +79,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -79,13 +87,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $request->validate(['name' => 'required', 'description' => 'nullable', 'quantity' => 'required|integer', 'product_type' => 'required', 'platform' => 'nullable', 'price' => 'required|numeric', 'image_path' => 'nullable|string']);
+        $product->update($request->all());
+        return redirect()->route('products.index')->with('success', 'Product updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Product $product)
-    { $product->delete();
-         return redirect()->route('products.index')->with('success', 'Product deleted successfully.'); }
+    {
+        $product->delete();
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+    }
 }
