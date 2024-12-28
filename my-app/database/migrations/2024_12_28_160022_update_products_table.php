@@ -11,15 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('image_path')->nullable(); // Make image_path nullable
-            $table->string('product_type');
-            $table->string('name');
-            $table->string('platform');
-            $table->integer('price');
-            $table->integer('stock_quantity');
-            $table->integer('units_sold')->default(0);
+        Schema::table('products', function (Blueprint $table) {
+            $table->string('image_path')->nullable()->change(); // Make image_path nullable
             $table->text('description')->nullable(); // Add description column
             $table->timestamps(); // Adding timestamps (created_at and updated_at)
         });
@@ -30,6 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::table('products', function (Blueprint $table) {
+            $table->string('image_path')->nullable(false)->change(); // Revert image_path to not nullable
+            $table->dropColumn('description'); // Remove description column
+            $table->dropTimestamps(); // Remove timestamps (created_at and updated_at)
+        });
     }
 };
