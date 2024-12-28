@@ -20,7 +20,7 @@ class InventoryManagerController extends Controller
     public function dashboard()
     {
         $totalOrders = Order::count();
-        $productsInventory = Product::sum('stock_quantity'); // Corrected to sum stock_quantity
+        $productsInventory = Product::sum('stock_quantity');
 
         return view('inventory-manager-dashboard', compact('totalOrders', 'productsInventory'));
     }
@@ -49,6 +49,21 @@ class InventoryManagerController extends Controller
 
         $products = $products->get();
 
-        return view('products.searchProduct', compact('products'));
+        $totalOrders = Order::count();
+        $productsInventory = Product::sum('stock_quantity');
+
+        return view('inventory-manager-data', compact('products', 'totalOrders', 'productsInventory'));
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
+        $totalOrders = Order::count();
+        $productsInventory = Product::sum('stock_quantity');
+        $products = Product::all();
+
+        return view('inventory-manager-data', compact('products', 'totalOrders', 'productsInventory'))
+            ->with('success', 'Product deleted successfully.');
     }
 }
