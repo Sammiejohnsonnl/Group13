@@ -15,10 +15,6 @@
                 <textarea class="form-control" id="description" name="description"></textarea>
             </div>
             <div class="form-group">
-                <label for="quantity">Quantity:</label>
-                <input type="number" class="form-control" id="quantity" name="quantity" required>
-            </div>
-            <div class="form-group">
                 <label for="product_type">Product Type:</label>
                 <input type="text" class="form-control" id="product_type" name="product_type" required>
             </div>
