@@ -2,7 +2,7 @@
 
 @section('content')
     <header>
-        <h1>Inventory Manager</h1>
+        <h1 style="text-align: center;">Inventory Manager</h1>
         <div class="header-icons">
             <a href="{{ route('notification') }}"><i class="fa-regular fa-bell"></i></a>
             <i class="fa-regular fa-user header-icons"></i>

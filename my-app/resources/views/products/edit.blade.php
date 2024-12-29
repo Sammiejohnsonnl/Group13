@@ -4,7 +4,8 @@
     <div class="container">
         <h2>Edit Product</h2>
 
-        <form action="{{ route('products.update', $product->id) }}" method="POST">
+
+        <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -14,11 +15,6 @@
             <div class="form-group">
                 <label for="description">Description:</label>
                 <textarea class="form-control" id="description" name="description">{{ $product->description }}</textarea>
-            </div>
-            <div class="form-group">
-                <label for="quantity">Quantity:</label>
-                <input type="number" class="form-control" id="quantity" name="quantity" value="{{ $product->quantity }}"
-                    required>
             </div>
             <div class="form-group">
                 <label for="product_type">Product Type:</label>
@@ -31,13 +27,21 @@
             </div>
             <div class="form-group">
                 <label for="price">Price:</label>
-                <input type="text" class="form-control" id="price" name="price" value="{{ $product->price }}"
+                <input type="number" class="form-control" id="price" name="price" value="{{ $product->price }}"
                     required>
             </div>
             <div class="form-group">
-                <label for="image_path">Image Path (URL):</label>
-                <input type="text" class="form-control" id="image_path" name="image_path"
-                    value="{{ $product->image_path }}">
+                <label for="stock_quantity">Stock Quantity:</label>
+                <input type="number" class="form-control" id="stock_quantity" name="stock_quantity"
+                    value="{{ $product->stock_quantity }}" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Product Image:</label>
+                <input type="file" class="form-control" id="image" name="image">
+                @if ($product->image_path)
+                    <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}"
+                        class="img-thumbnail mt-2" style="width: 150px;">
+                @endif
             </div>
             <button type="submit" class="btn btn-primary">Update Product</button>
         </form>

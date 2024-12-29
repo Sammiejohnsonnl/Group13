@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -10,7 +11,9 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('admin-inventory-data', compact('products'));
+        $totalOrders = Order::count();
+        $productsInventory = Product::sum('stock_quantity');
+        return view('admin-inventory-data', compact('products', 'totalOrders', 'productsInventory'));
     }
 
     public function searchProduct(Request $request)
@@ -37,27 +40,17 @@ class ProductController extends Controller
 
         $products = $products->get();
 
-        return view('admin-inventory-data', compact('products'));
+        $totalOrders = Order::count();
+        $productsInventory = Product::sum('stock_quantity');
+
+        return view('admin-inventory-data', compact('products', 'totalOrders', 'productsInventory'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('products.create');
     }
 
-    public function viewProduct()
-    {
-        $products = Product::all();
-
-        return view('/admin-inventory-data', compact('products'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -88,25 +81,16 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Product added successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Product $product)
     {
         return view('products.show', compact('product'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Product $product)
     {
         return view('products.edit', compact('product'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Product $product)
     {
         $request->validate([
@@ -137,9 +121,6 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Product updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Product $product)
     {
         $product->delete();
