@@ -111,7 +111,7 @@
         .error-message {
             color: red;
             font-size: 14px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -123,7 +123,7 @@
         <form action="{{ route('login') }}" method="POST">
             @csrf
             <!-- Username or Email -->
-            <input type="text" class="input-field" placeholder="Email" name="username" value="{{ old('username') }}" required>
+            <input type="text" class="input-field" placeholder="Email" name="email" value="{{ old('username') }}" required>
             
             @if($errors->has('username'))
                 <div class="error-message">{{ $errors->first('username') }}</div>
@@ -146,10 +146,10 @@
 
         <!-- Footer Links -->
         <div class="footer-links">
-            <a href="#">Forgot Password?</a> | 
-            <a href="#">Sign Up</a>
-        </div>
-    </div>
+        <a href="{{ route('password.request') }}">Forgot Password?</a> | 
+        <a href="{{ route('register') }}">Sign Up</a>
+     </div>
+ </div>
 
     <script>
         // Toggle password visibility
