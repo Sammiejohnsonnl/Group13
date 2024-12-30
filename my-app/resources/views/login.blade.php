@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-
     <title>Login</title>
+
     <body>
         <div class="reg-body">
 
             <section class="reg-container">
 
-                
-                <h1 class="reg-header">Welcome Back</h1> 
-                
+
+                <h1 class="reg-header">Welcome Back</h1>
+
 
                 <form action="#" class="form">
 
@@ -27,8 +27,8 @@
 
                     <button class="sign-btn">Sign in</button>
 
-                    <div  class="paragraph">
-                        <p>Don't have an account?<a href="{{ route('user.signup') }}"> Sign Up </a></p>
+                    <div class="paragraph">
+                        <p>Don't have an account?<a href="{{ route('sign-up') }}"> Sign Up </a></p>
                     </div>
 
                 </form>
@@ -36,6 +36,4 @@
             </section>
         </div>
     </body>
-
-
 @endsection

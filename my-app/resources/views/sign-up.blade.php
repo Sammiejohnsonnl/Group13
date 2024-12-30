@@ -1,14 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
     <title>Sign-Up</title>
-    
-    <header> 
-        <div class="header-icons"><a href="{{ route('notification') }}"><i class="fa-regular fa-bell"></i></a>
-            <i class="fa-regular fa-user header-icons"></i>
-        </div>
-    </header>
 
     <body>
         <div class="reg-body">
@@ -62,7 +55,7 @@
 
                     <button class="sign-btn" type="submit">Sign Up</button>
 
-                    <div  class="paragraph">
+                    <div class="paragraph">
                         <p>Already a member?<a href="{{ route('user.login') }}"> Sign in </a></p>
                     </div>
 
@@ -72,6 +65,4 @@
             </section>
         </div>
     </body>
-
-
 @endsection
