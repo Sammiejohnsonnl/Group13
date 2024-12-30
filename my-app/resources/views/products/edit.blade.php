@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h2>Edit Product</h2>
+        <h1 style="text-align: center;">Edit Product</h1>
 
 
         <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">

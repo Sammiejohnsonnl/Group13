@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h2>Pending Orders</h2>
+        <h1 style="text-align: center;">Pending Orders</h1>
         <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
                 <thead class="thead-light">
@@ -19,8 +19,16 @@
                     @foreach ($pendingOrders as $order)
                         <tr>
                             <td>{{ $order->id }}</td>
-                            <td>{{ $order->customer->name }}</td>
-                            <td>{{ $order->product->name }}</td>
+                            <td>
+                                @if ($order->customer)
+                                    {{ $order->customer->first_name }} {{ $order->customer->last_name }}
+                                @elseif ($order->unregistered_customer_name)
+                                    {{ $order->unregistered_customer_name }}
+                                @else
+                                    Unregistered
+                                @endif
+                            </td>
+                            <td>{{ $order->product->name ?? 'Unknown Product' }}</td>
                             <td>{{ $order->quantity }}</td>
                             <td>£{{ number_format($order->total, 2) }}</td>
                             <td>
