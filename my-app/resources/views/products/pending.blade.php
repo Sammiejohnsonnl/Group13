@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="container">
-        <h1 style="text-align: center;">Pending Orders</h1>
+        <header class="mb-4 text-center">
+            <h2>Pending Orders</h2>
+        </header>
         <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
                 <thead class="thead-light">

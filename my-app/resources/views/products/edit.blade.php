@@ -2,9 +2,11 @@
 
 @section('content')
     <div class="container">
-        <h1 style="text-align: center;">Edit Product</h1>
-
-
+        <header class="mb-4 text-center">
+            <h2>Edit Product</h2>
+        </header>
+    </div>
+    <div>
         <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')

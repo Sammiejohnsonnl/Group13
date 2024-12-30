@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="container">
-        <h1 style="text-align: center;">Add Product</h1>
+        <header class="mb-4 text-center">
+            <h2>Add Product</h2>
+        </header>
     </div>
     <div class="p-4 bg-light border rounded shadow mt-4">
         <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">

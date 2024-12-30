@@ -1,13 +1,14 @@
 @extends('inventory-manager-menu')
 
 @section('content')
-    <header>
+    <header class="mb-4 text-center">
         <h1 style="text-align: center;">Inventory Manager Dashboard</h1>
-        <div class="header-icons">
-            <a href="{{ route('notification') }}"><i class="fa-regular fa-bell"></i></a>
-            <i class="fa-regular fa-user header-icons"></i>
-        </div>
     </header>
+    <div class="header-icons">
+        <a href="{{ route('notification') }}"><i class="fa-regular fa-bell"></i></a>
+        <i class="fa-regular fa-user header-icons"></i>
+    </div>
+
 
     <div class="content">
         <h3>Products Overview</h3>

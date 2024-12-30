@@ -1,31 +1,31 @@
 @extends('inventory-manager-menu')
 
 @section('content')
-    <header>
-        <h1 style="text-align: center;">View Inventory</h1>
+    <header class="mb-4">
+        <h1 class="text-center">View Inventory</h1>
         <div class="header-icons">
             <a href="{{ route('notification') }}"><i class="fa-regular fa-bell"></i></a>
             <i class="fa-regular fa-user header-icons"></i>
         </div>
     </header>
 
-    <div class="admin-searchbar">
+    <div class="admin-searchbar mb-4">
         <form class="form-inline my-2 my-lg-0" method="get" action="{{ route('inventory.manager.searchProduct') }}">
-            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search Product"
+            <input class="form-control mr-sm-2 mb-2" type="search" name="search" placeholder="Search Product"
                 aria-label="Search">
-            <select class="form-control form-control-sm select-size" name="product_type">
+            <select class="form-control form-control-sm select-size mb-2" name="product_type">
                 <option value="">Product Type</option>
                 <option value="Game">Game</option>
                 <option value="Console">Console</option>
                 <option value="Accessory">Accessory</option>
             </select>
-            <select class="form-control form-control-sm select-size" name="platform">
+            <select class="form-control form-control-sm select-size mb-2" name="platform">
                 <option value="">Platform</option>
                 <option value="pc">PC</option>
                 <option value="xbox">Xbox</option>
                 <option value="playstation">Playstation</option>
             </select>
-            <select class="form-control form-control-sm select-size" name="order">
+            <select class="form-control form-control-sm select-size mb-2" name="order">
                 <option value="">Order by</option>
                 <option value="Stock">Stock Low to High</option>
             </select>
@@ -34,8 +34,8 @@
     </div>
 
     <div class="content">
-        <h3>Products</h3>
-        <a href="{{ route('products.create') }}" class="btn btn-primary mb-3">Add Product</a>
+        <h3 class="mb-4">Products</h3>
+        <a href="{{ route('products.create') }}" class="btn btn-primary mb-4">Add Product</a>
         <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
                 <thead class="thead-light">
@@ -47,7 +47,6 @@
                         <th scope="col">Price</th>
                         <th scope="col">Stock</th>
                         <th scope="col">Units Sold</th>
-                        <th scope="col">Profit</th>
                         <th scope="col">Created At</th>
                         <th scope="col">Updated At</th>
                         <th scope="col">Actions</th>
@@ -63,7 +62,6 @@
                             <td>£{{ number_format($product->price, 2) }}</td>
                             <td>{{ $product->stock_quantity }}</td>
                             <td>{{ $product->units_sold }}</td>
-                            <td>£{{ number_format($product->units_sold * $product->price, 2) }}</td>
                             <td>{{ $product->created_at }}</td>
                             <td>{{ $product->updated_at }}</td>
                             <td>
