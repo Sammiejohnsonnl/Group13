@@ -3,10 +3,6 @@
 @section('content')
     <header class="mb-4">
         <h1 class="text-center">View Inventory</h1>
-        <div class="header-icons">
-            <a href="{{ route('notification') }}"><i class="fa-regular fa-bell"></i></a>
-            <i class="fa-regular fa-user header-icons"></i>
-        </div>
     </header>
 
     <div class="admin-searchbar mb-4">
