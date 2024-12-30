@@ -7,66 +7,17 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-
-    public function viewInvoices()
+    public function pending()
     {
-        $orders = Order::with(['customer', 'products'])->get();
-        return view('admin-invoice-details', compact('orders'));
+        $pendingOrders = Order::where('status', 'pending')->get();
+        return view('products.pending', compact('pendingOrders'));
     }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function process(Request $request, Order $order)
     {
-        //
-    }
+        $order->status = 'processed';
+        $order->save();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Order $order)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Order $order)
-    {
-        //
+        return redirect()->route('orders.pending')->with('success', 'Order processed successfully.');
     }
 }

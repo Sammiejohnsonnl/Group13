@@ -10,7 +10,7 @@ class InventoryManagerController extends Controller
 {
     public function index()
     {
-        $totalOrders = Order::count();
+        $totalOrders = Order::where('status', 'processed')->count();
         $productsInventory = Product::sum('stock_quantity');
         $products = Product::all();
 
@@ -19,7 +19,7 @@ class InventoryManagerController extends Controller
 
     public function dashboard()
     {
-        $totalOrders = Order::count();
+        $totalOrders = Order::where('status', 'processed')->count();
         $productsInventory = Product::sum('stock_quantity');
 
         return view('inventory-manager-dashboard', compact('totalOrders', 'productsInventory'));
@@ -49,7 +49,7 @@ class InventoryManagerController extends Controller
 
         $products = $products->get();
 
-        $totalOrders = Order::count();
+        $totalOrders = Order::where('status', 'processed')->count();
         $productsInventory = Product::sum('stock_quantity');
 
         return view('inventory-manager-data', compact('products', 'totalOrders', 'productsInventory'));
@@ -59,7 +59,7 @@ class InventoryManagerController extends Controller
     {
         $product->delete();
 
-        $totalOrders = Order::count();
+        $totalOrders = Order::where('status', 'processed')->count();
         $productsInventory = Product::sum('stock_quantity');
         $products = Product::all();
 

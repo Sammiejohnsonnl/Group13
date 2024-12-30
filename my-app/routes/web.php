@@ -77,3 +77,9 @@ Route::get('/inventory-manager-searchProduct', [InventoryManagerController::clas
 
 // Registered user Sign-Up
 Route::post('/user/sign-up', [RegisteredCustomerController::class, 'userSignUp'])->name('user.signUp');
+
+
+// Orders
+Route::get('orders/pending', [OrderController::class, 'pending'])->name('orders.pending');
+
+Route::put('orders/{order}/process', [OrderController::class, 'process'])->name('orders.process');

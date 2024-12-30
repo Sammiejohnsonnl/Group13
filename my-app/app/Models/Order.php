@@ -8,17 +8,25 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Order extends Model
 {
-    protected $fillable = ['registered_customer_id', 'total'];
+    protected $fillable = [
+        'customer_id',
+        'product_id',
+        'quantity',
+        'total_price',
+        'status',
+        'customer_type',
+        'delivery_status',
+        'total'
+    ];
 
     public function customer(): BelongsTo
     {
-        return $this->belongsTo(RegisteredCustomer::class, 'registered_customer_id');
+        return $this->belongsTo(Customer::class, 'customer_id');
     }
 
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class, 'product_ordereds', 'order_id', 'product_id')
-                    ->withPivot('ordered_quantity');
+            ->withPivot('ordered_quantity');
     }
 }
-

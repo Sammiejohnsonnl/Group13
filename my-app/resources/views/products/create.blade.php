@@ -3,7 +3,8 @@
 @section('content')
     <div class="container">
         <h1 style="text-align: center;">Add Product</h1>
-
+    </div>
+    <div class="p-4 bg-light border rounded shadow mt-4">
         <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">

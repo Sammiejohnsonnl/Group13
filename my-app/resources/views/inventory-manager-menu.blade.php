@@ -53,10 +53,10 @@
     <div class="sidebar">
         <h6 class="dropdown-header">Home</h6>
         <a href="{{ route('inventory.manager.dashboard') }}">Dashboard</a>
-        <div class="dropdown-divider"></div>
         <h6 class="dropdown-header">Product Management</h6>
         <a href="{{ route('products.create') }}">Add Product</a>
         <a href="{{ route('inventory.manager.data') }}">View Inventory</a>
+        <a href="{{ route('orders.pending') }}">Process Customer Purchases</a>
     </div>
 
     <div class="content" style="margin-left: 270px;">
