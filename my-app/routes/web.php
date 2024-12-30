@@ -7,11 +7,10 @@ use App\Http\Controllers\RegisteredCustomerController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\InventoryManagerController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::get('/admin-create-staff', function () {
     return view('admin-create-staff');
@@ -41,16 +40,19 @@ Route::get('/sign-up', function () {
     return view('sign-up');
 })->name('sign-up');
 
-Route::get('/inventory-manager-dashboard', [InventoryManagerController::class, 'dashboard'])->name('inventory-manager-dashboard');
-
-// Login Routes
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login'])->name('user.login');
-Route::post('/logout', [LoginController::class, 'logout'])->name('user.logout');
+Route::get('/login', function () {
+    return view('login'); // login view
+})->name('login');
 
 Route::get('/shopping-cart', function () {
     return view('shopping-cart');
 })->name('shopping-cart');
+
+Route::get('/inventory-manager-dashboard', [InventoryManagerController::class, 'dashboard'])->name('inventory-manager-dashboard');
+
+// Login Routes
+Route::post('/login', [LoginController::class, 'login'])->name('user.login');
+Route::post('/logout', [LoginController::class, 'logout'])->name('user.logout');
 
 Route::post('/staff/save', [StaffController::class, 'saveStaff'])->name('saveStaff');
 
@@ -78,8 +80,6 @@ Route::get('/inventory-manager-searchProduct', [InventoryManagerController::clas
 // Registered user Sign-Up
 Route::post('/user/sign-up', [RegisteredCustomerController::class, 'userSignUp'])->name('user.signUp');
 
-
 // Orders
 Route::get('orders/pending', [OrderController::class, 'pending'])->name('orders.pending');
-
 Route::put('orders/{order}/process', [OrderController::class, 'process'])->name('orders.process');
