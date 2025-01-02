@@ -1,6 +1,7 @@
-@extends('inventory-manager-menu')
+@extends('layouts.app')
 
 @section('content')
+    @include('inventory-manager-menu')
     <header class="mb-4 text-center">
         <h1 style="text-align: center;">Inventory Manager Dashboard</h1>
     </header>

@@ -1,6 +1,7 @@
-@extends('inventory-manager-menu')
+@extends('layouts.app')
 
 @section('content')
+    @include('inventory-manager-menu')
     <header>
         <h1 style="text-align: center;">Search Products</h1>
         <div class="header-icons">

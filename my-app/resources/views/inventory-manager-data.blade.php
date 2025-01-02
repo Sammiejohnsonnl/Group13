@@ -1,6 +1,8 @@
-@extends('inventory-manager-menu')
+@extends('layouts.app')
 
 @section('content')
+    @include('inventory-manager-menu')
+
     <header class="mb-4">
         <h1 class="text-center">View Inventory</h1>
     </header>

@@ -69,6 +69,8 @@ Route::get('/customers/{customer}', [RegisteredCustomerController::class, 'show'
 Route::resource('products', ProductController::class);
 
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 
 // Inventory Manager View
 Route::get('/inventory-manager-data', [InventoryManagerController::class, 'index'])->name('inventory.manager.data');

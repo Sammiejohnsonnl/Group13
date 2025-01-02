@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
@@ -63,12 +64,14 @@ class ProductController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        Log::info('Incoming store data:', $request->all());
+
         $imagePath = null;
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('product_images', 'public');
         }
 
-        Product::create([
+        $product = Product::create([
             'name' => $request->name,
             'description' => $request->description,
             'product_type' => $request->product_type,
@@ -78,17 +81,9 @@ class ProductController extends Controller
             'image_path' => $imagePath,
         ]);
 
-        return redirect()->route('products.index')->with('success', 'Product added successfully.');
-    }
+        Log::info('Created product:', $product->toArray());
 
-    public function show(Product $product)
-    {
-        return view('products.show', compact('product'));
-    }
-
-    public function edit(Product $product)
-    {
-        return view('products.edit', compact('product'));
+        return redirect()->route('inventory.manager.data')->with('success', 'Product added successfully.');
     }
 
     public function update(Request $request, Product $product)
@@ -102,6 +97,8 @@ class ProductController extends Controller
             'stock_quantity' => 'required|integer',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+        Log::info('Incoming update data:', $request->all());
 
         $imagePath = $product->image_path;
         if ($request->hasFile('image')) {
@@ -118,12 +115,26 @@ class ProductController extends Controller
             'image_path' => $imagePath,
         ]);
 
-        return redirect()->route('products.index')->with('success', 'Product updated successfully.');
+        Log::info('Updated product data:', $product->toArray());
+
+        return redirect()->route('inventory.manager.data')->with('success', 'Product updated successfully.');
+    }
+
+
+    public function edit(Product $product)
+    {
+        Log::info('Product description:', ['description' => $product->description]);
+        return view('products.edit', compact('product'));
+    }
+
+    public function show(Product $product)
+    {
+        return view('products.show', compact('product'));
     }
 
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+        return redirect()->route('inventory.manager.data')->with('success', 'Product deleted successfully.');
     }
 }

@@ -1,6 +1,7 @@
-@extends('inventory-manager-menu')
+@extends('layouts.app')
 
 @section('content')
+    @include('inventory-manager-menu')
     <div class="container">
         <header class="mb-4 text-center">
             <h2>Pending Orders</h2>
